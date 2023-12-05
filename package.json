@@ -54,6 +54,9 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-easier)"
     ]
   }
 }
