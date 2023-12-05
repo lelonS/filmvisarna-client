@@ -4,6 +4,7 @@ import BookingTicketsForm from './BookingTicketsForm';
 
 // Mocks
 const mockUsedNavigate = jest.fn();
+
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockUsedNavigate,
@@ -23,16 +24,24 @@ describe('BookingTicketsForm', () => {
         expect(screen.getByText('logga in!')).toBeInTheDocument();
     });
 
-    test('updates input values correctly', async () => {
+    test('updates input values correctly', () => {
         const setInputValues = jest.fn();
         render(<BookingTicketsForm inputValues={{}} setInputValues={setInputValues} />);
         // await new Promise((r) => setTimeout(r, 1000));
 
-        const emailInput = screen.getByTestId('email-input')
+        const emailInput = screen.getByTestId('email-input');
+        const reEmailInput = screen.getByTestId('reEmail-input');
+        const phoneInput = screen.getByTestId('phone-input');
+
         // Simulate typing into the input field using fireEvent
         fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+        fireEvent.change(reEmailInput, { target: { value: 'test@example.com' } });
+        fireEvent.change(phoneInput, { target: { value: '0701234567' } });
 
-        expect(setInputValues).toHaveBeenCalledTimes(1);
+        expect(setInputValues).toHaveBeenCalledTimes(3);
+        expect(setInputValues).toHaveBeenCalledWith({ email: 'test@example.com' });
+        expect(setInputValues).toHaveBeenCalledWith({ reEmail: 'test@example.com' });
+        expect(setInputValues).toHaveBeenCalledWith({ phone: '0701234567' });
     });
 
     test('navigates to the registration page when "Bli medlem" button is clicked', () => {

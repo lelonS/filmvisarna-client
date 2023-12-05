@@ -29,9 +29,9 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
                 <label className="font-inconsolata" htmlFor="email">Fyll i mailadress</label>
                 <input data-testid="email-input" onChange={handleChange} name="email" value={inputValues.email} className="py-2 px-4 rounded w-[16em] text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="re-email">Bekräfta mailadress</label>
-                <input onChange={handleChange} name="reEmail" value={inputValues.reEmail} className="py-2 px-4 rounded text-black" type="text" />
+                <input data-testid="reEmail-input" onChange={handleChange} name="reEmail" value={inputValues.reEmail} className="py-2 px-4 rounded text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="email">Mobiltelefon</label>
-                <input onChange={handleChange} name="phone" value={inputValues.phone} className="py-2 px-4 rounded mb-10 text-black" type="text" />
+                <input data-testid="phone-input" onChange={handleChange} name="phone" value={inputValues.phone} className="py-2 px-4 rounded mb-10 text-black" type="text" />
             </div>
         </div>
     )
