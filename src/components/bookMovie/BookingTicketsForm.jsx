@@ -27,7 +27,7 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
             </div>
             <div className="flex flex-col">
                 <label className="font-inconsolata" htmlFor="email">Fyll i mailadress</label>
-                <input onChange={handleChange} name="email" value={inputValues.email} className="py-2 px-4 rounded w-[16em] text-black" type="text" />
+                <input data-testid="email-input" onChange={handleChange} name="email" value={inputValues.email} className="py-2 px-4 rounded w-[16em] text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="re-email">Bekräfta mailadress</label>
                 <input onChange={handleChange} name="reEmail" value={inputValues.reEmail} className="py-2 px-4 rounded text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="email">Mobiltelefon</label>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import BookingTicketsForm from './BookingTicketsForm';
 
@@ -25,9 +26,9 @@ describe('BookingTicketsForm', () => {
     test('updates input values correctly', async () => {
         const setInputValues = jest.fn();
         render(<BookingTicketsForm inputValues={{}} setInputValues={setInputValues} />);
-        await new Promise((r) => setTimeout(r, 1000));
+        // await new Promise((r) => setTimeout(r, 1000));
 
-        const emailInput = screen.getByRole('textbox');
+        const emailInput = screen.getByTestId('email-input')
         // Simulate typing into the input field using fireEvent
         fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
 
