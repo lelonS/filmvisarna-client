@@ -4,7 +4,6 @@ import BookingTicketsForm from './BookingTicketsForm';
 
 // Mocks
 const mockUsedNavigate = jest.fn();
-
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockUsedNavigate,
