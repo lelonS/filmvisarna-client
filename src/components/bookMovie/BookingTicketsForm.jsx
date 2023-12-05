@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useNavigate } from "react-router-dom";
-import { useStates } from 'react-easier';
+import { useStates } from '../../react-easier/index.jsx';
 import { useEffect } from 'react';
 
 export default function BookingTicketsForm({ inputValues, setInputValues }) {
@@ -11,7 +11,7 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
     }, []);
     function handleChange(e) {
         setInputValues({ ...inputValues, [e.target.name]: e.target.value })
-        
+
     }
     return (
         <div className="text-white flex flex-col w-4/5 items-center m-auto">

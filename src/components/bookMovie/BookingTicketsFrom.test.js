@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import App from "./App";
+import BookingTicketsForm from "./BookingTicketsForm";
 
 // Promise:
 // new Promise((resolve, reject) => {
@@ -37,8 +37,8 @@ describe("App", () => {
 
   it("renders App component", async () => {
     // check that Kaliteye hoşgeldiniz is displayed
-    render(<App />);
-    const linkElement = await screen.findByText(/Filmer/i);
+    render(<BookingTicketsForm />);
+    const linkElement = await screen.findByText(/eller/i);
     expect(linkElement).toBeInTheDocument();
   });
 });
