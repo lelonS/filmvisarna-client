@@ -69,5 +69,7 @@ describe('BookingTicketsForm', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  // The login button below "Bli Medlem" does not work and is not tested as I dont know what it is exactly supposed to do
+
   // Add more tests as needed... 
 });
