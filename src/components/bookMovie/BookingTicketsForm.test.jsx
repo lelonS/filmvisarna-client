@@ -52,5 +52,5 @@ describe('BookingTicketsForm', () => {
     expect(mockUsedNavigate).toHaveBeenCalledWith('/registrera');
   });
 
-  // Add more tests as needed... 
+  // Add more tests as needed... :)
 });
