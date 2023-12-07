@@ -13,12 +13,23 @@ window.scrollTo = jest.fn();
 
 describe('BookingTicketsForm', () => {
   test('renders the form correctly', () => {
-    render(<BookingTicketsForm inputValues={{}} setInputValues={() => { }} />);
+    render(<BookingTicketsForm inputValues={{ email: 'test@example.com' }} setInputValues={() => { }} />);
 
     // Assert that the form elements are rendered correctly
+    // Labels
     expect(screen.getByText('Fyll i mailadress')).toBeInTheDocument();
     expect(screen.getByText('Bekräfta mailadress')).toBeInTheDocument();
     expect(screen.getByText('Mobiltelefon')).toBeInTheDocument();
+
+    // Inputs
+    expect(screen.getByTestId('email-input')).toBeInTheDocument();
+    expect(screen.getByTestId('reEmail-input')).toBeInTheDocument();
+    expect(screen.getByTestId('phone-input')).toBeInTheDocument();
+
+    // input values
+    expect(screen.getByTestId('email-input').value).toBe('test@example.com');
+
+    // Buttons
     expect(screen.getByRole('button', { name: 'Bli medlem' })).toBeInTheDocument();
     expect(screen.getByText('logga in!')).toBeInTheDocument();
   });
