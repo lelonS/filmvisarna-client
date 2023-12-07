@@ -35,4 +35,21 @@ describe('ConfirmBooking', () => {
     expect(screen.getByText('Pris:')).toBeInTheDocument();
   });
 
+  test('renders correctly when mail fails', () => {
+    render(<ConfirmBooking nodeMailerError={'error'} bookingResult={bookingResult} screening={screening} movie={movie} />);
+
+    // Assert that the form elements are rendered correctly
+    expect(screen.getByText('Tack för din bokning!')).toBeInTheDocument();
+    expect(screen.getByText('Din boking har genomförts men vi hade problem att skicka ett mail till din epost')).toBeInTheDocument();
+    expect(screen.getByText('Bokningsnummer:')).toBeInTheDocument();
+    expect(screen.getByText('Film:')).toBeInTheDocument();
+    expect(screen.getByText('Biljettyp:')).toBeInTheDocument();
+    expect(screen.getByText('Rad:')).toBeInTheDocument();
+    expect(screen.getByText('Plats:')).toBeInTheDocument();
+    expect(screen.getByText('Salong:')).toBeInTheDocument();
+    expect(screen.getByText('Datum:')).toBeInTheDocument();
+    expect(screen.getByText('Epost:')).toBeInTheDocument();
+    expect(screen.getByText('Pris:')).toBeInTheDocument();
+
+  });
 });
