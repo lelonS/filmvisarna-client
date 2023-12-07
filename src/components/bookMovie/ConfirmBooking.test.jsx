@@ -53,6 +53,13 @@ describe('ConfirmBooking', () => {
     expect(screen.getByText('Pris:')).toBeInTheDocument();
   });
 
+  test('renders correctly when nothing is passed', () => {
+    render(<ConfirmBooking />);
+
+    // Assert that the home button exists
+    expect(screen.getByRole('button', { name: 'Hem' })).toBeInTheDocument();
+
+  });
 
   test('renders the for correctly snapshot testing', () => {
     const tree = renderer.create(<ConfirmBooking nodeMailerError={''} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
@@ -63,6 +70,7 @@ describe('ConfirmBooking', () => {
     const tree = renderer.create(<ConfirmBooking nodeMailerError={'error'} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
 
 
 });
