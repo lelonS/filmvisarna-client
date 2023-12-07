@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import BookingTicketsForm from './BookingTicketsForm';
+import renderer from 'react-test-renderer';
 
 // Mocks
 const mockUsedNavigate = jest.fn();
@@ -61,6 +62,11 @@ describe('BookingTicketsForm', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Bli medlem' }));
     expect(mockUsedNavigate).toHaveBeenCalledTimes(1);
     expect(mockUsedNavigate).toHaveBeenCalledWith('/registrera');
+  });
+
+  test('renders the form correctly with snapshot testing', () => {
+    const tree = renderer.create(<BookingTicketsForm inputValues={{}} setInputValues={() => { }} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   // Add more tests as needed... 
