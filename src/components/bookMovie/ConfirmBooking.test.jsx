@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import ConfirmBooking from './ConfirmBooking';
 
 // Test data imports
@@ -50,6 +51,18 @@ describe('ConfirmBooking', () => {
     expect(screen.getByText('Datum:')).toBeInTheDocument();
     expect(screen.getByText('Epost:')).toBeInTheDocument();
     expect(screen.getByText('Pris:')).toBeInTheDocument();
-
   });
+
+
+  test('renders the for correctly snapshot testing', () => {
+    const tree = renderer.create(<ConfirmBooking nodeMailerError={''} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('renders correctly when mail fails snapshot testing', () => {
+    const tree = renderer.create(<ConfirmBooking nodeMailerError={'error'} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+
 });

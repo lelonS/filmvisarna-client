@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmBooking renders correctly when mail fails snapshot testing 1`] = `
+<div
+  className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto"
+>
+  <div
+    className="text-center mt-4 w-full h-full"
+  >
+    <h1
+      className=" top-1/4 font-bold mb-10 text-4xl"
+    >
+      Tack för din bokning!
+    </h1>
+    <div
+      className="mb-10 max-w-full flex justify-center items-end"
+    >
+      <img
+        alt="movie poster"
+        className="w-34 h-48 rounded-lg"
+        src="/img/bilar_poster.jpg"
+      />
+      <div
+        className="text-white-100 ml-4 flex flex-col items-start lg:px-6 md:px-6"
+      >
+        <p
+          className="text-xl"
+        />
+        <h2
+          className="text-xl font-extra-bold"
+        >
+          Bilar 2
+        </h2>
+        <p
+          className="font-inconsolata text-base text-start"
+        >
+          Familjefilm, Animation
+        </p>
+        <p
+          className="text-base"
+        >
+          Ingen åldersgräns
+        </p>
+      </div>
+    </div>
+    <ul
+      className="flex flex-col sm:text-lg md:text-xl "
+    >
+      <div>
+        <p
+          className="text-xl sm:text-2xl lg:text-3xl text-left mb-6"
+        >
+          Din boking har genomförts men vi hade problem att skicka ett mail till din epost  
+        </p>
+        <p
+          className="mb-10 text-left text-gold "
+        >
+           Är du medlem så finns din boking sparad på mina sidor. 
+          <br />
+           För smidig hantering ta gärna en bild/skärmdump eller skriv ner ditt bokningsnummer. Tack för er förståelse!
+        </p>
+      </div>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Bokningsnummer:
+        </p>
+         
+        <p>
+          QLR2WA
+        </p>
+         
+      </li>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Film:
+        </p>
+         
+        <p>
+          Bilar 2
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Biljettyp:
+        </p>
+        <div
+          className="flex gap-3"
+        >
+          2 Vuxna
+        </div>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Rad: 
+        </p>
+        <p>
+          1
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Plats:
+        </p>
+         
+        <p>
+          1, 2
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Salong: 
+        </p>
+        Stora Salongen
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Datum:
+        </p>
+         
+        <p>
+           
+          Fredag 8:e december
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Epost:
+        </p>
+         
+        <p>
+          kadoadis@gmail.com
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Pris:
+        </p>
+         
+        <p>
+          280 kr
+        </p>
+      </li>
+    </ul>
+    <button
+      className="bg-gold w-36 text-black px-6 py-2 rounded m-auto text-xl my-12"
+      onClick={[Function]}
+    >
+      Hem
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfirmBooking renders the for correctly snapshot testing 1`] = `
+<div
+  className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto"
+>
+  <div
+    className="text-center mt-4 w-full h-full"
+  >
+    <h1
+      className=" top-1/4 font-bold mb-10 text-4xl"
+    >
+      Tack för din bokning!
+    </h1>
+    <div
+      className="mb-10 max-w-full flex justify-center items-end"
+    >
+      <img
+        alt="movie poster"
+        className="w-34 h-48 rounded-lg"
+        src="/img/bilar_poster.jpg"
+      />
+      <div
+        className="text-white-100 ml-4 flex flex-col items-start lg:px-6 md:px-6"
+      >
+        <p
+          className="text-xl"
+        />
+        <h2
+          className="text-xl font-extra-bold"
+        >
+          Bilar 2
+        </h2>
+        <p
+          className="font-inconsolata text-base text-start"
+        >
+          Familjefilm, Animation
+        </p>
+        <p
+          className="text-base"
+        >
+          Ingen åldersgräns
+        </p>
+      </div>
+    </div>
+    <ul
+      className="flex flex-col sm:text-lg md:text-xl "
+    >
+      <p
+        className="text-xl sm:text-2xl lg:text-3xl text-left mb-6"
+      >
+        En bokningsbekräftelse har nu skickats till din email! 
+      </p>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Bokningsnummer:
+        </p>
+         
+        <p>
+          QLR2WA
+        </p>
+         
+      </li>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Film:
+        </p>
+         
+        <p>
+          Bilar 2
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+        <p>
+          Biljettyp:
+        </p>
+        <div
+          className="flex gap-3"
+        >
+          2 Vuxna
+        </div>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Rad: 
+        </p>
+        <p>
+          1
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Plats:
+        </p>
+         
+        <p>
+          1, 2
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Salong: 
+        </p>
+        Stora Salongen
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Datum:
+        </p>
+         
+        <p>
+           
+          Fredag 8:e december
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Epost:
+        </p>
+         
+        <p>
+          kadoadis@gmail.com
+        </p>
+      </li>
+      <li
+        className="flex justify-between"
+      >
+         
+        <p>
+          Pris:
+        </p>
+         
+        <p>
+          280 kr
+        </p>
+      </li>
+    </ul>
+    <button
+      className="bg-gold w-36 text-black px-6 py-2 rounded m-auto text-xl my-12"
+      onClick={[Function]}
+    >
+      Hem
+    </button>
+  </div>
+</div>
+`;

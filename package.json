@@ -57,6 +57,7 @@
     ],
     "transformIgnorePatterns": [
       "/node_modules/(?!react-easier)"
-    ]
+    ],
+    "prettierPath": null
   }
 }
