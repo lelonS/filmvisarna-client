@@ -19,7 +19,7 @@ window.scrollTo = jest.fn();
 
 describe('ConfirmBooking', () => {
 
-  test('renders the form correctly', () => {
+  test('renders correctly', () => {
     render(<ConfirmBooking nodeMailerError={''} bookingResult={bookingResult} screening={screening} movie={movie} />);
 
     // Assert that the form elements are rendered correctly
@@ -61,12 +61,12 @@ describe('ConfirmBooking', () => {
 
   });
 
-  test('renders the for correctly snapshot testing', () => {
+  test('renders correctly with snapshot testing', () => {
     const tree = renderer.create(<ConfirmBooking nodeMailerError={''} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  test('renders correctly when mail fails snapshot testing', () => {
+  test('renders correctly when mail fails with snapshot testing', () => {
     const tree = renderer.create(<ConfirmBooking nodeMailerError={'error'} bookingResult={bookingResult} screening={screening} movie={movie} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

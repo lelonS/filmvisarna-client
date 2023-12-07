@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfirmBooking renders correctly when mail fails snapshot testing 1`] = `
+exports[`ConfirmBooking renders correctly when mail fails with snapshot testing 1`] = `
 <div
   className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto"
 >
@@ -175,7 +175,7 @@ exports[`ConfirmBooking renders correctly when mail fails snapshot testing 1`] =
 </div>
 `;
 
-exports[`ConfirmBooking renders the for correctly snapshot testing 1`] = `
+exports[`ConfirmBooking renders correctly with snapshot testing 1`] = `
 <div
   className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto"
 >
