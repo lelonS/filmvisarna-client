@@ -1,0 +1,75 @@
+{
+    "nodeMailerError": "Error: Invalid login: 535 5.7.139 Authentication unsuccessful, account locked. Contact your administrator. [OS6P279CA0012.NORP279.PROD.OUTLOOK.COM 2023-12-07T12:28:00.739Z 08DBF5C621C540EA]",
+    "bookingResult": {
+        "bookingId": "QLR2WA",
+        "customerEmail": "kadoadis@gmail.com",
+        "ticketType": {
+            "adult": 2,
+            "child": 0,
+            "senior": 0
+        },
+        "screeningID": "6554d8ffe1e758c3b57d55c5",
+        "rows": [
+            {
+                "row": 1
+            }
+        ],
+        "seats": [
+            {
+                "seat": 1,
+                "seatNumber": 1
+            },
+            {
+                "seat": 1,
+                "seatNumber": 2
+            }
+        ],
+        "price": 280,
+        "status": true,
+        "_id": "6571ba4d09d8aab0e19de3da"
+    },
+    "movie": {
+        "_id": "6554d6d2e1e758c3b57d55c3",
+        "title": "Bilar 2",
+        "description": "Hela världen är en racerbana när racingens superstjärna Blixten McQueen sladdar tillbaka in i äventyret, givetvis med sin bästa vän Bärgarn i släptåg. I den här nya högoktaniga fortsättningen av Bilar är det dags att ta sig an världens snabbaste och skickligaste konkurrenter. Bärgarn och Blixten McQueen kommer att behöva sina pass när de nu ger sig in i en värld av fylld av intriger, spänning och blixtsnabba komiskaäventyr jorden runt.",
+        "director": "John LasseterBrad Lewis",
+        "genre": "Familjefilm, Animation",
+        "speech": "Svenska",
+        "subtitles": "Svenska",
+        "ageRestriction": 0,
+        "img_poster": "bilar_poster.jpg",
+        "img_header": "bilar_header.png"
+    },
+    "screening": {
+        "_id": "6554d8ffe1e758c3b57d55c5",
+        "date": "2023-12-08",
+        "time": "15:00",
+        "theater": 1,
+        "movieID": "6554d6d2e1e758c3b57d55c3",
+        "theaterName": "Stora Salongen",
+        "seats": [
+            [
+                {
+                    "rating": 3,
+                    "seat": false,
+                    "seatNumber": 1
+                },
+                {
+                    "rating": 4,
+                    "seat": false,
+                    "seatNumber": 2
+                },
+                {
+                    "rating": 5,
+                    "seat": false,
+                    "seatNumber": 3
+                },
+                {
+                    "rating": 6,
+                    "seat": false,
+                    "seatNumber": 4
+                }
+            ]
+        ]
+    }
+}
