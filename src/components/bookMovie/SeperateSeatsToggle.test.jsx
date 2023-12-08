@@ -4,6 +4,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import SeperateSeatsToggle from './SeperateSeatsToggle';
+import { useStates } from 'react-easier';
 
 
 // Mocks
@@ -14,10 +15,13 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const mockObject = { toggle: undefined };
+
 jest.mock('react-easier', () => ({
   ...jest.requireActual('react-easier'),
-  useStates: () => mockObject
+  useStates: jest.fn().mockImplementation(() => mockObject)
 }));
+
+
 
 window.scrollTo = jest.fn();
 
@@ -25,6 +29,11 @@ describe('SeperateSeatsToggle', () => {
 
   test('renders correctly', () => {
     render(<SeperateSeatsToggle />);
+
+    // Check that useStates is called with correct parameters
+    expect(useStates).toHaveBeenCalledTimes(1);
+    expect(useStates).toHaveBeenCalledWith('toggleSeparateSeats', { toggle: false });
+
     expect(screen.getByText('Välj separata platser')).toBeInTheDocument();
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
 
