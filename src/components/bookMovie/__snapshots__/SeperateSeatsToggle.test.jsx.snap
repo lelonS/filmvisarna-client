@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeperateSeatsToggle renders correctly with snapshot 1`] = `
+<label
+  className="flex items-center cursor-pointer"
+  htmlFor="toogleA"
+>
+  <div
+    className="relative"
+  >
+    <input
+      className="sr-only"
+      id="toogleA"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+    />
+    <div
+      className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+    />
+  </div>
+  <div
+    className="ml-3 text-white font-medium"
+  >
+    Välj separata platser
+  </div>
+</label>
+`;
