@@ -45,8 +45,10 @@ describe('SeperateSeatsToggle', () => {
     // Simulate changing checkbox using fireEvent
     fireEvent.click(checkbox);
     expect(mockObject.toggle).toBe(true);
+    fireEvent.click(checkbox);
+    expect(mockObject.toggle).toBe(false);
 
-    expect(setSeats).toHaveBeenCalledTimes(1);
+    expect(setSeats).toHaveBeenCalledTimes(2);
     expect(setSeats).toHaveBeenCalledWith([]);
   });
 
