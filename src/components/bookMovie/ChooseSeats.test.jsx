@@ -1,3 +1,4 @@
+import React, { useState as useStateMock } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react';
 import ChooseSeats from './ChooseSeats';
 
@@ -9,10 +10,25 @@ const exampleScreening = {
     { "seat": false, "seatNumber": 4, "rating": 4 }]]
 }
 
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: jest.fn(),
+}))
+
+
+
 // seat: true = booked
 // { booked: false, row: 1, seat: 1, seatNumber: 1 }
 
 describe('ChooseSeats', () => {
+
+  const setState = jest.fn();
+
+  beforeEach(() => {
+    useStateMock.mockImplementation(init => [init, setState]);
+  });
+
   test('renders the form correctly when seat selected', () => {
     render(<ChooseSeats screening={exampleScreening} seats={[{ booked: false, row: 1, seat: 1, seatNumber: 1 }]} setSeats={() => { }} />);
 
@@ -23,7 +39,9 @@ describe('ChooseSeats', () => {
   });
 
   test('renders the form correctly when seat not selected', () => {
-    render(<ChooseSeats screening={exampleScreening} seats={[{ booked: false, row: 1, seat: 2, seatNumber: 2 }]} setSeats={() => { }} />);
+    // Override the useStateMock from the beforeEach (set the toggle to true which means that the seats are not available)
+    useStateMock.mockImplementation(() => [true, setState]);
+    render(<ChooseSeats screening={exampleScreening} seats={[]} setSeats={() => { }} />);
 
     // Assert that the form elements are rendered correctly
     expect(screen.getByText(/Antal biljetter:/i)).toBeInTheDocument();
