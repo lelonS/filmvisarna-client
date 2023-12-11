@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChooseSeats renders correctly snapshopt test 1`] = `
+<div
+  className="lg:w-[700px] md:w-[70%] w-[80%] container mt-5"
+>
+  <label
+    className="flex items-center cursor-pointer"
+    htmlFor="toogleA"
+  >
+    <div
+      className="relative"
+    >
+      <input
+        className="sr-only"
+        id="toogleA"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <div
+        className="w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+      />
+      <div
+        className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+      />
+    </div>
+    <div
+      className="ml-3 text-white font-medium"
+    >
+      Välj separata platser
+    </div>
+  </label>
+  <div
+    className="screen mb-7 mt-4"
+  />
+  <div>
+    <div
+      className="flex justify-center w-full sm:gap-2 mb-2"
+      id="row-1"
+    >
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-1"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-red-600 seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={true}
+        id="row1seat-2"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-3"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-4"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="text-white text-center mt-2 mb-4"
+  >
+    <p>
+      Antal biljetter:  
+    </p>
+    <p>
+      Rad: 
+      1 -
+       Plats:
+       
+      1
+    </p>
+  </div>
+</div>
+`;
+
+exports[`ChooseSeats renders correctly when seat not selected snapshopt test 1`] = `
+<div
+  className="lg:w-[700px] md:w-[70%] w-[80%] container mt-5"
+>
+  <label
+    className="flex items-center cursor-pointer"
+    htmlFor="toogleA"
+  >
+    <div
+      className="relative"
+    >
+      <input
+        className="sr-only"
+        id="toogleA"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <div
+        className="w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+      />
+      <div
+        className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+      />
+    </div>
+    <div
+      className="ml-3 text-white font-medium"
+    >
+      Välj separata platser
+    </div>
+  </label>
+  <div
+    className="screen mb-7 mt-4"
+  />
+  <div>
+    <div
+      className="flex justify-center w-full sm:gap-2 mb-2"
+      id="row-1"
+    >
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-1"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-red-600 seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={true}
+        id="row1seat-2"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-3"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <button
+        className="bg-footerGrey cursor-pointer seat lg:w-10 lg:h-7 md:w-8 md:h-8 w-5 h-5 "
+        disabled={false}
+        id="row1seat-4"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="text-white text-center mt-2 mb-4"
+  >
+    <p>
+      Antal biljetter:  
+    </p>
+    <p>
+      Plats:
+       
+    </p>
+    <p
+      className="text-red-500"
+    >
+      Välj andra säten, ett eller flera säten av dom du försökte välja är redan bokade
+    </p>
+  </div>
+</div>
+`;
