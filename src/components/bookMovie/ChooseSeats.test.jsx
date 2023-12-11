@@ -1,5 +1,6 @@
 import React, { useState as useStateMock } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import ChooseSeats from './ChooseSeats';
 
 const exampleScreening = {
@@ -29,7 +30,7 @@ describe('ChooseSeats', () => {
     useStateMock.mockImplementation(init => [init, setState]);
   });
 
-  test('renders the form correctly when seat selected', () => {
+  test('renders correctly when seat selected', () => {
     render(<ChooseSeats screening={exampleScreening} seats={[{ booked: false, row: 1, seat: 1, seatNumber: 1 }]} setSeats={() => { }} />);
 
     // Assert that the form elements are rendered correctly
@@ -38,14 +39,28 @@ describe('ChooseSeats', () => {
     expect(screen.getByText(/Plats:/i)).toBeInTheDocument();
   });
 
-  test('renders the form correctly when seat not selected', () => {
+
+  test('renders correctly when seat not selected', () => {
     // Override the useStateMock from the beforeEach (set the toggle to true which means that the seats are not available)
-    useStateMock.mockImplementation(() => [true, setState]);
-    render(<ChooseSeats screening={exampleScreening} seats={[]} setSeats={() => { }} />);
+    useStateMock.mockImplementationOnce(() => [true, setState]);
+    render(<ChooseSeats screening={{ ...exampleScreening }} seats={[]} setSeats={() => { }} />);
 
     // Assert that the form elements are rendered correctly
     expect(screen.getByText(/Antal biljetter:/i)).toBeInTheDocument();
     expect(screen.getByText(/Plats:/i)).toBeInTheDocument();
     expect(screen.getByText(/Välj andra säten, ett eller flera säten av dom du försökte välja är redan bokade/i)).toBeInTheDocument();
   });
+
+  test('renders correctly when seat not selected snapshopt test', () => {
+    // Override the useStateMock from the beforeEach (set the toggle to true which means that the seats are not available)
+    useStateMock.mockImplementationOnce(() => [true, setState]);
+    const tree = renderer.create(<ChooseSeats screening={{ ...exampleScreening }} seats={[]} setSeats={() => { }} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('renders correctly snapshopt test', () => {
+    const tree = renderer.create(<ChooseSeats screening={{ ...exampleScreening }} seats={[{ booked: false, row: 1, seat: 1, seatNumber: 1 }]} setSeats={() => { }} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
 });
