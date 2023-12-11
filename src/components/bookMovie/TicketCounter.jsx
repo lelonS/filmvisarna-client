@@ -17,7 +17,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
         if (
           array.length % 2 == 0 &&
           seats[seats.length - 1].seat + 1 <=
-            screening.seats[seats[0].row - 1].length &&
+          screening.seats[seats[0].row - 1].length &&
           !screening.seats[seats[0].row - 1][seats[seats.length - 1].seat].seat
         ) {
           array.push({
@@ -92,7 +92,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.adult}</p>
+            <p data-testid="adult-counter" className="mx-3 text-2xl sm:text-3xl">{counters.adult}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="adult"
@@ -112,7 +112,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.child}</p>
+            <p data-testid="child-counter" className="mx-3 text-2xl sm:text-3xl">{counters.child}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="child"
@@ -132,7 +132,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.senior}</p>
+            <p data-testid="senior-counter" className="mx-3 text-2xl sm:text-3xl">{counters.senior}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="senior"
@@ -152,9 +152,8 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
           />
           <div className="flex flex-col justify-end text-start text-base">
             <p className="text-xl">{movie.title}</p>
-            <p>{`${newDateFormat(screening.date).replaceAll("/", "-")} | ${
-              screening.time
-            }`}</p>
+            <p>{`${newDateFormat(screening.date).replaceAll("/", "-")} | ${screening.time
+              }`}</p>
             <p>{screening.theaterName}</p>
             <p>{movie.genre}</p>
             <p>{movie.length} </p>

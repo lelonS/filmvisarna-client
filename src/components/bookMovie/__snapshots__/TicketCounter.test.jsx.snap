@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TicketCounter renders correctly with snapshot 1`] = `
+<div
+  className="flex flex-col justify-evenly p-8 text-center text-xl text-white sm:mt-40 sm:flex-row sm:text-2xl lg:w-[80%]"
+>
+  <div
+    className="sm:text-3xl lg:w-2/5"
+  >
+    <h2
+      className="mb-6 text-3xl sm:text-3xl lg:text-left lg:text-[2.5rem]"
+    >
+      Välj antal biljetter
+    </h2>
+    <div
+      className="lg:flex lg:items-center lg:justify-between"
+    >
+      <p
+        className="sm:text-2xl"
+      >
+        Vuxen (140 kr)
+      </p>
+      <div
+        className=" flex items-center justify-center"
+      >
+        <button
+          className="text-4xl sm:text-5xl"
+          name="adult"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <p
+          className="mx-3 text-2xl sm:text-3xl"
+          data-testid="adult-counter"
+        >
+          2
+        </p>
+        <button
+          className="text-3xl sm:text-4xl"
+          name="adult"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      className="lg:flex lg:items-center lg:justify-between"
+    >
+      <p
+        className="sm:text-2xl"
+      >
+        Barn (120 kr)
+      </p>
+      <div
+        className="flex items-center justify-center"
+      >
+        <button
+          className="text-4xl sm:text-5xl"
+          name="child"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <p
+          className="mx-3 text-2xl sm:text-3xl"
+          data-testid="child-counter"
+        >
+          0
+        </p>
+        <button
+          className="text-3xl sm:text-4xl"
+          name="child"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      className="lg:flex lg:items-center lg:justify-between"
+    >
+      <p
+        className="sm:text-2xl"
+      >
+        Pensionär (80 kr)
+      </p>
+      <div
+        className="flex items-center justify-center"
+      >
+        <button
+          className="text-4xl sm:text-5xl"
+          name="senior"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <p
+          className="mx-3 text-2xl sm:text-3xl"
+          data-testid="senior-counter"
+        >
+          0
+        </p>
+        <button
+          className="text-3xl sm:text-4xl"
+          name="senior"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="mt-6 flex gap-6"
+  >
+    <img
+      alt="movie poster"
+      className="h-44 sm:mt-auto sm:h-60"
+      src="/img/bilar_poster.jpg"
+    />
+    <div
+      className="flex flex-col justify-end text-start text-base"
+    >
+      <p
+        className="text-xl"
+      >
+        Bilar 2
+      </p>
+      <p>
+        Fredag 8:e december | 15:00
+      </p>
+      <p>
+        Stora Salongen
+      </p>
+      <p>
+        Familjefilm, Animation
+      </p>
+      <p>
+        1 tim 45 min
+         
+      </p>
+      <p>
+         Ingen åldersgräns
+      </p>
+    </div>
+  </div>
+</div>
+`;

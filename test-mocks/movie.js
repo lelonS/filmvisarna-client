@@ -8,7 +8,8 @@ const movie = {
   "subtitles": "Svenska",
   "ageRestriction": 0,
   "img_poster": "bilar_poster.jpg",
-  "img_header": "bilar_header.png"
+  "img_header": "bilar_header.png",
+  'length': '1 tim 45 min'
 };
 
 export default movie;
