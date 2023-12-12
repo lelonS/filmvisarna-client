@@ -1,4 +1,4 @@
-{
+const booking = {
   "_id": "6577315472d526bb08df116e",
   "bookingId": "9FA0HM",
   "customerEmail": "test@testsson.test",
@@ -477,3 +477,5 @@
     "img_poster": "theCreatorPoster.jpg"
   }
 }
+
+export default booking;
