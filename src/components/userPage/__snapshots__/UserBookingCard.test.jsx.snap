@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserBookingCard renders correctly when collapsed snapshot 1`] = `
+<div
+  className="flex justify-center rounded-lg text-white"
+  style={{}}
+>
+  <div
+    className="mx-auto w-full max-w-[17rem] xs:mx-0 xs:max-w-[24rem]"
+  >
+    <div
+      className="flex flex-col justify-center xs:flex-row xs:items-end"
+      style={{}}
+    >
+      <img
+        alt="poster of the movie: The Creator"
+        className="mx-auto w-[10rem] rounded-lg xs:mx-0"
+        src="/img/theCreatorPoster.jpg"
+      />
+      <div
+        className="mt-4 flex flex-col gap-1 xs:mb-0"
+      >
+        <p
+          className="text-md ml-4 md:text-xl"
+        >
+          The Creator
+        </p>
+        <p
+          className="ml-4 text-base md:text-lg"
+        >
+          Söndag 24:e december
+        </p>
+        <p
+          className="ml-4 text-base md:text-lg"
+        >
+          Klockan 
+          21:00
+        </p>
+        <p
+          className="ml-4 text-base md:text-lg"
+        >
+          BokningsNr: 
+          9FA0HM
+        </p>
+        <div
+          className="mx-auto mb-2 flex w-20 cursor-pointer whitespace-nowrap underline xs:mb-0"
+          onClick={[Function]}
+        >
+          Mer info
+          <img
+            alt="expand more icon"
+            className="w-8"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

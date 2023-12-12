@@ -55,6 +55,39 @@ describe('UserBookingCard', () => {
     expect(screen.getByText('Plats:')).toBeInTheDocument();
     expect(screen.getByText('Pris:')).toBeInTheDocument();
     expect(screen.getByText('Status:')).toBeInTheDocument();
+    expect(screen.getByText('Bokad')).toBeInTheDocument();
+  });
+
+  test('renders correctly when status is false', () => {
+    let bookingWithStatusFalse = { ...booking, status: false };
+    render(<UserBookingCard booking={bookingWithStatusFalse} />);
+    fireEvent.click(screen.getByText('Mer info'));
+
+    // Assert that the form elements are rendered correctly
+    expectBaseElementsToBeRendered();
+
+    // Expand buttons
+    expect(screen.getByText('Mindre')).toBeInTheDocument();
+    expect(screen.getByAltText('expand less icon')).toBeInTheDocument();
+    expect(screen.queryByText('Mer info')).not.toBeInTheDocument();
+    expect(screen.queryByAltText('expand more icon')).not.toBeInTheDocument();
+
+    // More info info
+    expect(screen.getByText(booking.screening.theaterName)).toBeInTheDocument();
+    expect(screen.getByText('Rad:')).toBeInTheDocument();
+    expect(screen.getByText('Plats:')).toBeInTheDocument();
+    expect(screen.getByText('Pris:')).toBeInTheDocument();
+
+    expect(screen.queryByRole('button', { name: 'Avboka' })).not.toBeInTheDocument();
+
+    // Status test
+    expect(screen.getByText('Status:')).toBeInTheDocument();
+    expect(screen.getByText('Inaktiv')).toBeInTheDocument();
+  });
+
+  test('renders correctly when collapsed snapshot', () => {
+    const tree = renderer.create(<UserBookingCard booking={booking} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   test('clicking Avboka button calls setCancelBooking and setToggle', () => {
