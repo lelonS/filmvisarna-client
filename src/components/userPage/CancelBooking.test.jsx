@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import CancelBooking from './CancelBooking.jsx';
 import newDateFormat from '../../service/newDateFormat.js';
@@ -14,15 +14,24 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockUsedNavigate,
 }));
 
-const mockCancelBooking = jest.fn();
-jest.mock('../../service/fetchService', () => ({
-    ...jest.requireActual('../../service/fetchService'),
-    performRequest: () => mockCancelBooking
-}));
+// Mock the performRequest function
+import { performRequest } from '../../service/fetchService';
+jest.mock('../../service/fetchService');
+performRequest.mockResolvedValue({ message: 'Din bokning är nu avbokad!' });
 
 window.alert = jest.fn();
 
+// mock the reload function
+Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { reload: jest.fn() },
+});
+
 describe('ConfirmBooking', () => {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
     test('renders correctly', () => {
         render(<CancelBooking booking={booking} setToggle={jest.fn()} />);
@@ -47,7 +56,7 @@ describe('ConfirmBooking', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    test.skip('calls cancelBooking correctly', async () => {
+    test('cancelBooking success', async () => {
 
         render(<CancelBooking booking={booking} setToggle={jest.fn()} />);
 
@@ -55,11 +64,33 @@ describe('ConfirmBooking', () => {
 
         // Simulate changing checkbox using fireEvent
         fireEvent.click(cancelButton);
-        await new Promise((r) => setTimeout(r, 1000));
+        // await new Promise((r) => setTimeout(r, 1000));
 
-        expect(mockCancelBooking).toHaveBeenCalledTimes(1);
-        expect(mockCancelBooking).toHaveBeenCalledWith('/api/bookings', 'PATCH', { id: booking._id });
+        await waitFor(() => {
+            expect(performRequest).toHaveBeenCalledTimes(1);
+            expect(performRequest).toHaveBeenCalledWith('/api/bookings', 'PATCH', { id: booking._id });
+            expect(window.location.reload).toHaveBeenCalledTimes(1);
+        });
+    });
 
+    test('cancelBooking failed to unbook', async () => {
+
+        performRequest.mockResolvedValueOnce({ message: 'Error' });
+
+        render(<CancelBooking booking={booking} setToggle={jest.fn()} />);
+
+        const cancelButton = screen.getByRole('button', { name: 'Avboka' });
+
+        // Simulate changing checkbox using fireEvent
+        fireEvent.click(cancelButton);
+        // await new Promise((r) => setTimeout(r, 1000));
+
+        await waitFor(() => {
+            expect(performRequest).toHaveBeenCalledTimes(1);
+            expect(performRequest).toHaveBeenCalledWith('/api/bookings', 'PATCH', { id: booking._id });
+            expect(window.alert).toHaveBeenCalledTimes(1);
+            expect(window.alert).toHaveBeenCalledWith('Något gick fel');
+        });
     });
 
 
