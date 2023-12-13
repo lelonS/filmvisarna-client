@@ -3,7 +3,7 @@ import { styles } from "../styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import Login from "./Login";
 import { parseJwt } from "../service/jwtService";
-import { useStates } from "react-easier";
+import { useStates } from "../react-easier";
 import MainNav from "./navbars/MainNav";
 import MobileNav from "./navbars/MobileNav";
 export default function Header() {

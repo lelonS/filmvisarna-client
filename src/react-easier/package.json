@@ -1,0 +1,26 @@
+{
+  "name": "react-easier",
+  "version": "3.0.12",
+  "type": "module",
+  "description": "Useful React hooks that minimize the complexity of state handling, contexts and fetching.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node postinstall.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironboy/react-easier.git"
+  },
+  "author": "ironboy NodeHill",
+  "license": "MIT",
+  "keywords": [
+    "React",
+    "tools",
+    "hooks"
+  ],
+  "bugs": {
+    "url": "https://github.com/ironboy/react-easier/issues"
+  },
+  "homepage": "https://github.com/ironboy/react-easier#readme"
+}

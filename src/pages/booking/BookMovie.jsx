@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ChooseSeats from "../../components/bookMovie/ChooseSeats";
 import TicketCounter from "../../components/bookMovie/TicketCounter";
-import {useStates} from "react-easier"
+import { useStates } from "../../react-easier"
 import { useEffect, useState } from "react";
 import { performRequest } from "../../service/fetchService";
 
@@ -21,17 +21,17 @@ export default function BookMovie() {
     total: 2
   });
   useEffect(() => {
-      let screeningId = ""
-      const eventSource = new EventSource(`/api/screenings/${id}`);
-      eventSource.onmessage = (event) => {
+    let screeningId = ""
+    const eventSource = new EventSource(`/api/screenings/${id}`);
+    eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      if(screeningId === "") {
+      if (screeningId === "") {
         screeningId = data._id
         setScreening(data);
       } else if (screeningId === data._id) {
         setScreening(data)
       }
-      
+
     };
     eventSource.onerror = (error) => {
       console.error(error);
@@ -40,41 +40,41 @@ export default function BookMovie() {
     return () => {
       eventSource.close();
     };
-  },[id])
+  }, [id])
 
   useEffect(() => {
     (async () => {
-      if(screening === null) return;
+      if (screening === null) return;
       const data = await performRequest(`/api/movies/${screening.movieID}`, "GET");
       setMovie(data);
-    })() 
+    })()
   }, [screening])
 
   async function navToBookingP2() {
     const booking = {
       id: screening._id,
       rows: s.toggle ? seats.map(seat => {
-        return {row: seat.row}
-      }) : [{row: seats[0].row}],
+        return { row: seat.row }
+      }) : [{ row: seats[0].row }],
       seats: seats.map(seat => {
-        return {seat: seat.seat, seatNumber: seat.seatNumber}
+        return { seat: seat.seat, seatNumber: seat.seatNumber }
       }),
       adult: counters.adult,
       child: counters.child,
       senior: counters.senior,
     }
 
-    navigate("/bokning/bekraftelse", {state: {booking: booking, movie: movie, screening: screening}})
+    navigate("/bokning/bekraftelse", { state: { booking: booking, movie: movie, screening: screening } })
   }
-  
+
   return (
-    <>    
-    {screening && movie && <section className="flex flex-col items-center min-h-screen mb-20">
-        <TicketCounter screening={screening} movie={movie} seats={seats} setSeats={setSeats}/>
-        <ChooseSeats screening={screening} seats={seats} setSeats={setSeats}/>
+    <>
+      {screening && movie && <section className="flex flex-col items-center min-h-screen mb-20">
+        <TicketCounter screening={screening} movie={movie} seats={seats} setSeats={setSeats} />
+        <ChooseSeats screening={screening} seats={seats} setSeats={setSeats} />
 
         <button className="bg-gold text-black-100 rounded-md px-6 p-2" onClick={counters.total === seats.length ? navToBookingP2 : undefined}>Fortsätt</button>
-    </section>}
+      </section>}
     </>
   );
 }

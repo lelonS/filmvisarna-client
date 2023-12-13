@@ -4,7 +4,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import SeperateSeatsToggle from './SeperateSeatsToggle';
-import { useStates } from 'react-easier';
+import { useStates } from '../../react-easier';
 
 
 // Mocks

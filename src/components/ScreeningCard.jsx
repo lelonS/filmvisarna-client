@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useNavigate, Link } from "react-router-dom";
-import { useAutoKeys } from "react-easier";
+import { useAutoKeys } from "../react-easier";
 import { styles } from "../styles";
 import useFetch from "../hooks/useFetch";
 import newDateFormat from "../service/newDateFormat";
@@ -75,11 +75,10 @@ export default function ScreeningCard({ query, setInputValues }) {
                     <p className="text-xs md:text-base lg:text-lg">
                       {screening.movie.length}
                     </p>
-                    <p className="text-xs md:text-base lg:text-lg">{`${
-                      screening.movie.ageRestriction === 0
+                    <p className="text-xs md:text-base lg:text-lg">{`${screening.movie.ageRestriction === 0
                         ? "Ingen åldersgräns"
                         : screening.movie.ageRestriction + " år"
-                    }`}</p>
+                      }`}</p>
                   </div>
 
                   <button

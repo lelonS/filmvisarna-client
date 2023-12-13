@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useNavigate } from "react-router-dom";
-import { useStates } from 'react-easier';
+import { useStates } from '../../react-easier';
 import { useEffect } from 'react';
 
 export default function BookingTicketsForm({ inputValues, setInputValues }) {

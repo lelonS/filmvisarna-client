@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useStates } from "react-easier";
+import { useStates } from "../../react-easier";
 import PropTypes from "prop-types";
 import newDateFormat from "../../service/newDateFormat";
 

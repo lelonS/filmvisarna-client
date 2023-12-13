@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { styles } from "../../styles";
 import { account_circle_new, close, menu_new } from "../../assets";
-import { useStates } from "react-easier";
+import { useStates } from "../../react-easier";
 
 export default function MobileNav({
   currentUser,
@@ -30,9 +30,8 @@ export default function MobileNav({
         }
       />
       <p
-        className={`${styles.navText} ${
-          t.toggle ? "text-white" : "text-gold"
-        } hidden cursor-pointer hover:text-white xl:flex login-btn`}
+        className={`${styles.navText} ${t.toggle ? "text-white" : "text-gold"
+          } hidden cursor-pointer hover:text-white xl:flex login-btn`}
         onClick={() => (currentUser ? logout() : (t.toggle = true))}
       >
         {currentUser ? "Logga ut" : "Logga in"}
@@ -44,9 +43,8 @@ export default function MobileNav({
         onClick={() => setToggle(!toggle)}
       />
       <div
-        className={`${
-          !toggle ? "hidden" : "flex"
-        } hamburger-menu absolute right-0 top-20
+        className={`${!toggle ? "hidden" : "flex"
+          } hamburger-menu absolute right-0 top-20
             z-10 mx-4 my-2 min-w-[140px] rounded-xl bg-gradient-to-r from-footerGrey to-primary p-6`}
       >
         <ul className="flex list-none flex-col items-start justify-end gap-4 text-gold">
@@ -57,9 +55,8 @@ export default function MobileNav({
             }}
           >
             <li
-              className={`${
-                active === "" ? "text-white" : "text-gold"
-              } cursor-pointer hover:text-white`}
+              className={`${active === "" ? "text-white" : "text-gold"
+                } cursor-pointer hover:text-white`}
             >
               Hem
             </li>
@@ -71,9 +68,8 @@ export default function MobileNav({
             }}
           >
             <li
-              className={`${
-                active === "filmer" ? "text-white" : "text-gold"
-              } cursor-pointer hover:text-white`}
+              className={`${active === "filmer" ? "text-white" : "text-gold"
+                } cursor-pointer hover:text-white`}
             >
               Filmer
             </li>
@@ -85,9 +81,8 @@ export default function MobileNav({
             }}
           >
             <li
-              className={`${
-                active === "bokning" ? "text-white" : "text-gold"
-              } cursor-pointer hover:text-white`}
+              className={`${active === "bokning" ? "text-white" : "text-gold"
+                } cursor-pointer hover:text-white`}
             >
               Biljetter
             </li>
@@ -100,9 +95,8 @@ export default function MobileNav({
               }}
             >
               <li
-                className={`${
-                  active === "registrera" ? "text-white" : "text-gold"
-                } cursor-pointer hover:text-white`}
+                className={`${active === "registrera" ? "text-white" : "text-gold"
+                  } cursor-pointer hover:text-white`}
               >
                 Bli medlem
               </li>
@@ -116,9 +110,8 @@ export default function MobileNav({
               }}
             >
               <li
-                className={`${
-                  active === "minasidor" ? "text-white" : "text-gold"
-                } cursor-pointer hover:text-white`}
+                className={`${active === "minasidor" ? "text-white" : "text-gold"
+                  } cursor-pointer hover:text-white`}
               >
                 Mina Sidor
               </li>
@@ -132,9 +125,8 @@ export default function MobileNav({
               }}
             >
               <li
-                className={`${
-                  active === "admin" ? "text-white" : "text-gold"
-                } cursor-pointer hover:text-white`}
+                className={`${active === "admin" ? "text-white" : "text-gold"
+                  } cursor-pointer hover:text-white`}
               >
                 Admin
               </li>

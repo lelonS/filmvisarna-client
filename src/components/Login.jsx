@@ -2,7 +2,7 @@ import { close } from "../assets";
 import { useState } from "react";
 import { performRequest } from "../service/fetchService";
 import { parseJwt } from "../service/jwtService";
-import { useStates } from "react-easier";
+import { useStates } from "../react-easier";
 import Loader from "./Loader";
 import { useEffect } from "react";
 

@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import ConfirmBooking from "../../components/bookMovie/ConfirmBooking";
 import BookingTicketsForm from "../../components/bookMovie/BookingTicketsForm";
-import { useStates } from "react-easier";
+import { useStates } from "../../react-easier";
 import { useEffect, useState } from "react";
 import { parseJwt } from "../../service/jwtService";
 import { performRequest } from "../../service/fetchService";
@@ -76,9 +76,8 @@ export default function BookingTickets() {
 
           {!toggleConfirmation.toggle && (
             <>
-              <h1 className="mb-8 text-xl text-white-100 lg:text-4xl">{`${
-                movie.title
-              } | ${newDateFormat(screening.date)}`}</h1>
+              <h1 className="mb-8 text-xl text-white-100 lg:text-4xl">{`${movie.title
+                } | ${newDateFormat(screening.date)}`}</h1>
               <div className="mb-10 flex max-w-full items-end justify-start md:justify-start lg:justify-start">
                 <img
                   src={`/img/${movie.img_poster}`}
@@ -86,14 +85,13 @@ export default function BookingTickets() {
                   className="w-34 h-48 rounded-lg"
                 />
                 <div className="ml-4 flex flex-col text-white-100 md:px-6 lg:px-6">
-                  <p className="text-base">{}</p>
+                  <p className="text-base">{ }</p>
                   <h2 className="font-extra-bold text-xl">{movie.title}</h2>
                   <p className="font-inconsolata text-base">{movie.genre}</p>
-                  <p className="text-base">{`${screening.time} | ${
-                    movie.ageRestriction === 0
-                      ? "Ingen åldersgräns"
-                      : movie.ageRestriction + " år"
-                  }`}</p>
+                  <p className="text-base">{`${screening.time} | ${movie.ageRestriction === 0
+                    ? "Ingen åldersgräns"
+                    : movie.ageRestriction + " år"
+                    }`}</p>
                 </div>
               </div>
 
