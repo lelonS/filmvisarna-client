@@ -1,101 +1,102 @@
-# React + Vite
+# Filmvisarna
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Utforskande testning
+### Bokning
+* Bokningen av biljetter liknade ett vanligt biosystem (som t.ex. från Filmstaden). 
+* Det tar oftast onödigt lång tid för själva bokningen av en film att gå igenom ( 7~10+ sekunder). 
+* När man bokar platser tillsammans är maxgränsen 6 totalt personer. Om du väljer “separata platser” så försvinner gränsen och man kan öka antalet vuxna/barn/pensionärer hur mycket som helst. Stänger du av “separata platser” så försöker hemsidan sätta totalen av antal personer/biljetter på en och samma rad. Det blir massa felmeddelanden i konsolen. Det går däremot inte att placera bokningen om inte totalen av antal biljetter faktiskt får plats på den raden du väljer. 
+* Vid bokning finns det en "logga in!"-knapp som inte fungerar. 
+* Man kan trycka boka utan att skriva in någon mail eller telefon nummer och blir då fast på att det laddar
+### Avbokning
+* Det går inte att avboka en film om du bokade den utan att logga in. 
+* Vi upptäckte att viss del av informationen på avbokningssidan är dold i bakgrunden. Det är information som redan syns på kortet ovan men hittades av våra tester först när vi letade efter texten på sidan. 
 
-Currently, two official plugins are available:
+## Unit-testning med Jest
+### Vad testade vi?
+Bokning och avbokning. Vi valde att testa komponenterna i `/components/bookMovie` och `/components/userPage`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Filer som vi testar:**
+* BookingTicketsForm.jsx
+* ChooseSeats.jsx
+* ConfirmBooking.jsx
+* SeperateSeatsToggle.jsx (felstavat filnamn “separate”)
+* TicketCounter.jsx
+* CancelBooking.jsx
+* UserBookingCard.jsx
 
-# Projektarbete: Filmvisarna
-star_outline
-unfold_more
-Företaget Filmvisarna AB är en liten biografkedja som vill börja konkurrera lokalt med SF. De har ett par biografsalonger i Småstad och har säkrat rättigheter att visa ett antal olika filmtitlar.
+**BookingTicketsForm:**
 
-Nu behöver de hjälp att bygga en första version av sin webbsajt, där besökarna ska kunna:
+Komponenten innehåller en “Bli medlem”-knapp, en “logga in!”-knapp som inte funkar, ett formulär där du kan fylla i mailadress två gånger och mobiltelefon. Det finns en “Boka”-knapp under allt som inte är del av komponenten. 
 
-Få information om filmer som visas, inkl. datum och tider.
-Se trailers för filmerna
-Boka sina biobiljetter online - och få reda på totalpris, placeringar (rad och stolsnr) samt bokningsnummer.
-Filmvisarna AB vill gärna ha ett bokningssystem där man kan se en grafisk skiss av biosalongerna och dess stolar. Man ska kunna boka ett antal intilliggande stolar för sitt sällskap vid en specifik visning av en film. Initialt ska de bästa kvarvarande stolarna markeras, men besökaren ska kunna ändra valet.
+**ChooseSeats:** 
 
-Medan man bokar ska man kunna välja antal besökare och se totalpriset. Man ska när man slutför en bokning få ett unikt bokningsnummer (som inte ska gå att gissa på något enkelt sätt), samt kunna se vilken/vilka rader och stolar man bokat.
+Komponenten innehåller komponenten SeperateSeatsToggle (se nedan), biosalongens alla rader och platser som är bokade, tillgängliga eller markerade. En “Fortsätt”-knapp är underst som tillhör en annan komponent. 
 
-Än så länge behöver man inte kunna betala online - utan betalning detta sker i samband med att man anländer till biografen och ger sitt bokningsnummer för personalen.
+**ConfirmBooking:**
 
-Observera! Pensionärer och barn (under 12 år) har lägre biljettpris. Normalt biljettpris är 140 kr, för pensionärer 120 kr och för barn 80 kr.
+Komponenten innehåller bokningsinformation efter att bokningen genomförts. T.ex bokningsnummer, filmtitel, rad & plats, salong, etc. 
 
-Salongernas stolar är numrerade från höger till vänster, framifrån och bakåt. (Stolen längst fram till höger har nummer 1. Om salongen har 100 stolar har den längst bak till vänster nummer 100.)
+**SeperateSeatsToggle:**
 
-# Produktägarens backlog
-Dessa user stories (22 stycken för närvarande, vid starten av projektet) kommer ifrån produktägaren. Inför en sprint kan dessa prioriteras om, nya user stories kan tillkomma, gamla kan utgå eller förändras. Ni i utvecklingsteamet kan föreslå user stories ni tycker saknas till produktägaren! Men produktägaren bestämmer vilka user stories som ska tas upp inför en sprint, och i vilken ordning de ska prioriteras.
+Komponenten är del av ChooseSeats och har en toggle-knapp som ställer in så att du kan välja platser separat i en salong istället för tillsammans. 
 
-- Som produktägare vill jag få se och godkänna wireframes av webbplatsen med dess olika vyer/sidor, headers, footers och menysystem, helst innan ni börjar göra en mer grafisk skiss/mockup, så att jag kan avgöra om jag tycker grunduppdelning i vyer etc. fungerar.
-- Som produktägare vill få sen en mockup vidareutvecklad från wireframes utvecklad antingen i Figma eller i enkel HTML + CSS/CSS-ramverk, som tydligt visar tänkt layout, färgval och typografi, samt klickbarhet (mellan sidor/vyer, inte för alla detaljer), så att jag kan avgöra om jag tycker ni är på rätt väg. Denna ska godkännas innan övrigt arbete påbörjas.
-- Som besökare vill jag kunna se lediga platser i en salong på en specifik visning så att jag kan avgöra om de finns platser kvar som är intressanta för mig.
-- Som besökare vill jag kunna gå till en detaljsida för en specifik film så att jag kan få mera informatino om filmen (bild, trailer, beskrivande text, skådespelare, regissör etc.)
-- Som besökare vill jag kunna boka platser på en visning så att jag vet att jag har önskade platser när jag ska se filmen.
-- Som besökare vill jag inte kunna boka platser redan bokade av någon annan, så att jag inte riskerar att sitta i knäet på någon.
-- Som besökare vill jag få en bekräftelse på bokning, innehållande valda stolsnummer, vilken film och datum/tid, med ett unikt, svårgissat, bokningsnummer så att jag kommer ihåg min bokning och kan ge bokningsnumret till biografen vid mitt besök.
-- Som besökare vill jag få bekräftelsen med mitt bokningsnummer skickad till min e-postaddress så att jag inte glömmer bort detaljer eller bokningsnummer.
-- Som systemägare vill jag att alla bokningar sparas i databasen så att jag kan matcha ett bokningsnummer jag får av kund mot en bokning.
-- Som besökare vill jag kunna boka biljetter med olika pris, så att jag kan utnyttja de lägre priserna för pensionärer och barn:
-Barn: 140kr
-Normal: 120kr
-Pensionär: 80kr
-- Som besökare vill jag kunna filtrera visningar på datum så att jag lätt kan hitta vilka filmer som går ett visst datum
-- Som besökare vill jag kunna filtrera filmer på åldersgräns, så att jag inte riskerar att mina barn ser olämpligt innehåll eller inte får se filmen fast vi bokat den.
-- Som besökare vill jag kunna se trailers på filmer för att bättre kunna avgöra om de intresserar mig eller inte.
-- Som besökare vill jag se live/direkt på skärmen när stolar blir bokade, när jag håller på att välja stolar på en visning så att jag inte tror att jag kan fortfarande kan boka något någon annan redan bokat.
-- Som användare vill jag kunna avboka en framtida bokning så att jag inte tar upp plats för någon annan.
-- Som besökare vill jag kunna registrera nytt konto för att sedan kunna logga in.
-- Som besökare med registrerat konto vill jag kunna logga in för att ta de av funktioner för inloggade användare.
-- Som inloggad användare vill jag kunna se mina bokningar och bokningshistorik.
-- Som systemägare vill jag se en prototyp med minst 5 filmer, fördelade med minst 30 (fiktiva) visningsdatum över våra 2 biografsalonger.
-- Som systemägare och besökare vill jag att alla vyer (sidor) har en egen unik URL/route så att det går att bokmärka, skicka länkar vidare till vänner etc.
-- Som svensktalande besökare (biografens primära målgrupp) vill jag att all information är på svenska och att tal och priser är formaterade enligt svensk standard, så att jag slipper bli förvirrad.
-- Som systemägare och besökare vill jag att webbplatsen är responsiv och välfungerande på alla vanligt förekommande enheter så att den är så åtkomlig som möjligt.
+**TicketCounter:**
 
-# Versionshantering
-- Inom varje sprint bör ni arbeta med olika featurebranches för olika områden.
+Komponenten innehåller tre räknare för Vuxen-, Barn- och Pensionärsbiljetter. Går mellan 0 och 6 totalt (t.ex. 2 av varje, eller 4 vuxna och 2 barn). Om du togglar separata platser kan du välja hur många biljetter som helst (troligen inte avsedd funktionalitet). Information om den valda filmen finns här också, med filmplansch, titel, datum, etc. 
 
-# Betygskriterier för inlämningsuppgiften “Filmvisarna”
-Krav och bedömning
+**CancelBooking:**
 
-Arbetet ska ske i grupp med agil metodik. Ni ska särskilt iakta följande:
+Komponenten som kommer upp när man trycker `Avboka` i ett `UserBookingCard` för att konfirmera avbokningen. Komponenten visar även information om bokningen.
 
-# Agila moment
-- Ni ska endast planera tasks för en Sprint i taget.
-- Ni ska löpande ha möten med produktägaren.
-- Ni ska använda er av poker-planning och dess poäng.
-- Ni ska löpande använda och uppdatera ett SCRUM/Kanban-board.
-- När ni ska arbeta tillsammans i Sprinter ska ni börja varje tillfälle med ett stående SCRUM-möte.
-- Ni ska pargrogrammera för att sprida kunskaper och lösa svårare problem.
-- Ni ska avsluta era Sprinter med retrospektiv-möte.
-- Ni ska leverera en färdig delmängd till produktägaren vid slutet av varje Sprint.
+**UserBookingCard:**
 
-# Inför sprinten
-- Ert arbete ska stämmas av och prioriteras tillsammans med Produktägaren inför era Sprinter.
-- Ni ska stämma av ert arbete med läraren, inför en Sprint eller oftare, och då få möjlighet till feedback, som ligger till grund för bedömningen.
+Komponenten som visar en bokning på en användares sida. Inkluderar information om bokningen samt en `Mer info`-knapp som visar mer information och en avbokningsknapp. När man trycker på avboknings-knappen ska komponenten `CancelBooking` visas med hjälp av en `setState`.
 
-# Betygskriterier
-## FÖR GODKÄNT:
-- Ni ska ha arbetat enligt de fokusområden per sprint som lektionsplanen specificerar!
-- Ni ska ha arbetat agilt i grupp enligt kraven ovan under “Agila Moment”.
-- Ni ska ha levererat en fungerande webbapplikation enligt de User Stories ni fått.
-- Ni ska ha klarat minst 8 User Stories enligt prioritering av produktägaren.
-- Ni ska ha använt er av tekniker ni lär er under tidigare kurser.
-- Gränssnittet och dess vyer ska fungera väl och konsekvent.
-- Ni ska kontinuerligt ha checkat in er kod på git.
-- Utöver bedömningen för gruppen som helhet, behöver det för varje gruppmedlem framgå att denne uppfyllt kraven för Godkänt. Detta innebär att varje gruppmedlem bör ha checkat in relevant arbete under sitt namn, i git.
 
-## FÖR VÄL GODKÄNT:
-- Utöver ovanstående krav för Godkänt:
+### Hur god testtäckning har vi?
 
-- Funktionalitet och användargränssnitt ska vara tydligt och lätt att förstå.
-- Ni ska ha levererat en välfungerande applikation
-- Gränssnittet ska fungera på ett genomtänkt och välfungerande sätt.
-- Utöver bedömningen för gruppen som helhet, behöver det för varje gruppmedlem framgå att denne uppfyllt kraven för Väl Godkänt. Detta innebär att varje gruppmedlem bör ha checkat in relevant arbete under sitt namn, i git.
+😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎
 
-<small>Varför inte börja med en kopp kaffe? </small> :coffee:
+### Fanns det problem/brister med bokningssystemet som vi upptäckte vid testning? Vilka?
+
+Vi upptäckte inga fel med våra enhetstester, alla tester går igenom.
+
+### Stötte vi på problem med själva testramverket under arbetet med testerna? Vad? Vad var svårt att få att fungera med Jest? Varför?
+
+Vi stötte på problem när vi gjorde vår jest setup. Problemet vi stötte på berodde på modulen `react-easier`. Vi löste det genom att fixa babel configen och lägga till `transformIgnorePatterns` i jest inställningarna i `package.json`
+```json
+"transformIgnorePatterns": [
+      "/node_modules/(?!react-easier)"
+    ]
+```
+
+Efter det stötte vi på problemet att react-easier använder sig av `import.meta`. Vi löste det genom att bara kommentera ut den raden från filen i `node_modules/react-easier.
+
+Anledningen av många av dessa problem på grund av att jest använder `require` iställer för `import`
+
+### Går det att ‘mocka’/simulera saker under testerna på ett bra sätt?
+
+Det gick att mocka saker under testerna. Vi skulle vilja försöka hitta ett bättre sätt att mocka till exempel `useState` och har kvar original funktionalitet + testa den.
+
+### Fallback/kompletterande testning: Gjorde vi någon kompletterande testning med annat testramverk än Jest? (T.ex. Cypress.io). Varför? Vad kom vi fram till under dessa tester?
+
+Vi fokuserade på att skriva tester i Jest för att lära oss om det. Om vi hade använt andra verktyg som Cypress hade det snarare varit ui-testing istället för enhetstestning och vi hade kunnat ha större testtäckning.
+
+### Är det enkelt/svårt att förstå/följa hur källkoden fungerar - React-komponenter etc?
+
+Att förstå själva react-koden i helhet var inte jättesvårt. Koden var dock ganska svårläst med otydliga variabler. Ett exempel på det är användningen av “toggle” utan att förklara vad den styr på många ställen i koden. Ett annat exempel är att “seat” har olika mening i en “movie” och i en “booking”. I en booking är seat true/false medan i “movie” är det en siffra.
+
+## Förslag till förbättringar och framtida testutveckling
+
+### Hade det gått att göra fler tester, vilka?
+Det hade gått att göra mer tester. Ett uppenbart ställe är att testa filer i `/pages`. Det skulle även testa integrationen mellan komponenterna.
+
+### Hur hade det förbättrat testtäckningen?
+Om man testar mer saker förbättras testtäckningen. 
+
+### Hade andra testramverk behövts också (t.ex. för endpoint-testning)?
+Andra ramverk som Cypress för e2e testning hade ökat testtäckningen. Det skulle till exempel kunna göra att vi kan testa hela bokningsflödet. Det hade även gjort det enklare att återskapa de problem som vi upptäckte i vår utforskande testning då man är direkt i gränssnittet till skillnad från enhetstesterna vi gjorde på komponenterna.
+
+Vi hade även kunnat använda postman+newman för att skriva endpoint-testning till API:et för att se till att det fungerar som förväntat.
+
 
