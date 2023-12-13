@@ -1,5 +1,9 @@
 # Filmvisarna
 
+## Run tests
+
+(use branch react-easier-fix to use `npm install` and `npm test` without changing any files)
+
 ## Utforskande testning
 ### Bokning
 * Bokningen av biljetter liknade ett vanligt biosystem (som t.ex. från Filmstaden). 
