@@ -2,7 +2,18 @@
 
 ## Run tests
 
-(use branch react-easier-fix to use `npm install` and `npm test` without changing any files)
+**Använd branch:en `react-easier-fix` för att använda `npm install` och `npm test` utan att ändra i `node_modules`(hoppa över steg 2)**
+
+1. 
+```bash
+npm install
+```
+2. Gå till filen `/node_modules/react-easier/useDebug.js` och kommentera ut rad 3 (`if (import.meta...`)
+
+3. 
+```bash
+npm test
+```
 
 ## Utforskande testning
 ### Bokning
