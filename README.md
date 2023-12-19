@@ -2,7 +2,7 @@
 
 ## Run tests
 
-**Använd branch:en `react-easier-fix` för att använda `npm install` och `npm test` utan att ändra i `node_modules`(hoppa över steg 2)**
+**Använd branch:en `react-easier-fix` för att använda `npm install` och `npm test` utan att ändra i `node_modules`. När du gått till branch:en följ stegen som vanligt men hoppa över steg 2**
 
 1. 
 ```bash
