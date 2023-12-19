@@ -70,7 +70,7 @@ Komponenten som visar en bokning på en användares sida. Inkluderar information
 
 ### Hur god testtäckning har vi?
 
-Vi har inte så bra testtäckning då vi inte testar alla filer. Vi testar heller inte integrationen mellan komponenterna. Ett exempel på det är att vi inte hittar de buggar från den utforskandetestningen som vi gjorde.
+Vår testtäckning är okej, men hade kunnat förbättras genom att testa fler filer. Vi testar heller inte integrationen mellan komponenterna. Bland annat hittar vi inte buggar från den utforskandetestningen som vi gjorde.
 
 ### Fanns det problem/brister med bokningssystemet som vi upptäckte vid testning? Vilka?
 
