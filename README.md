@@ -59,7 +59,7 @@ Komponenten som visar en bokning på en användares sida. Inkluderar information
 
 ### Hur god testtäckning har vi?
 
-😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎
+Vi har inte så bra testtäckning då vi inte testar alla filer. Vi testar heller inte integrationen mellan komponenterna. Ett exempel på det är att vi inte hittar de buggar från den utforskandetestningen som vi gjorde.
 
 ### Fanns det problem/brister med bokningssystemet som vi upptäckte vid testning? Vilka?
 
@@ -92,12 +92,12 @@ Att förstå själva react-koden i helhet var inte jättesvårt. Koden var dock 
 
 ## Förslag till förbättringar och framtida testutveckling
 
-### Hade det gått att göra fler tester, vilka?
+### Hade det gått att göra fler tester, vilka? Hur hade det förbättrat testtäckningen?
+
 Det hade gått att göra mer tester. Ett uppenbart ställe är att testa filer i `/pages`. Det skulle även testa integrationen mellan komponenterna. 
 
 Det är några funktioner som finns i komponenterna `ChooseSeats.jsx` och `TicketCounter.jsx` som vi inte hann testa.
 
-### Hur hade det förbättrat testtäckningen?
 Om man testar mer saker förbättras testtäckningen.
 
 ### Hade andra testramverk behövts också (t.ex. för endpoint-testning)?
