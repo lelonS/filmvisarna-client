@@ -93,10 +93,12 @@ Att förstå själva react-koden i helhet var inte jättesvårt. Koden var dock 
 ## Förslag till förbättringar och framtida testutveckling
 
 ### Hade det gått att göra fler tester, vilka?
-Det hade gått att göra mer tester. Ett uppenbart ställe är att testa filer i `/pages`. Det skulle även testa integrationen mellan komponenterna.
+Det hade gått att göra mer tester. Ett uppenbart ställe är att testa filer i `/pages`. Det skulle även testa integrationen mellan komponenterna. 
+
+Det är några funktioner som finns i komponenterna `ChooseSeats.jsx` och `TicketCounter.jsx` som vi inte hann testa.
 
 ### Hur hade det förbättrat testtäckningen?
-Om man testar mer saker förbättras testtäckningen. 
+Om man testar mer saker förbättras testtäckningen.
 
 ### Hade andra testramverk behövts också (t.ex. för endpoint-testning)?
 Andra ramverk som Cypress för e2e testning hade ökat testtäckningen. Det skulle till exempel kunna göra att vi kan testa hela bokningsflödet. Det hade även gjort det enklare att återskapa de problem som vi upptäckte i vår utforskande testning då man är direkt i gränssnittet till skillnad från enhetstesterna vi gjorde på komponenterna.
